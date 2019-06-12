@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #
-# Just runs yarn lint
+# Just runs yarn test
 set -euo pipefail
 
-exec yarn lint
+exec yarn test
