@@ -58,7 +58,14 @@ find_eslint_for_file () {
         fi
     done
 
-    echo $best_match
+    if [ -n "$best_match" ]; then
+        echo $best_match
+    elif [ -e ./package.json ]; then
+        echo .
+    else
+        return 1
+    fi
+    return 0
 }
 
 # Lints a single file.
@@ -66,7 +73,7 @@ find_eslint_for_file () {
 # If there are many files in the same package, this will find the package every time
 # this is acceptable though since that is cheaper compared to the actual lint work.
 lintafile () {
-    local_eslint_package=`find_eslint_for_file $file "$package_paths"`
+    local_eslint_package=$(find_eslint_for_file $file "$package_paths") || die "No eslint package found"
     ensure_eslint_installed $local_eslint_package
 
     if [ -n "$local_eslint_package/$LOCAL_ESLINT_PATH" ]; then
