@@ -1,4 +1,4 @@
-A collection of git hooks, just a few for now, for a bigger collection of linter hooks, see [anylint](https://github.com/neonnoon/anylint).
+A collection of git hooks, just the baics.
 
 ### Install
 
