@@ -46,7 +46,7 @@ find_eslint_for_file () {
 
     # Best match is the one that (a) matches and (b) has more / in it.
     best_match=
-    best_match_count=0
+    best_match_count=-1
     for package in `echo "$package_paths"`; do
         # does it match at all?
         if [[ $file == $package/* ]]; then
