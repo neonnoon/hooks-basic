@@ -19,7 +19,7 @@ die() {
 # Finds all package.json files that have eslint in it.
 # Slightly hacky, but best we can do without extra dependencies.
 find_package_json_with_eslint () {
-    for package in `find . -name target -prune -o -name node_modules -prune -o -name -prune -o -name package.json -print`; do
+    for package in `find . -name target -prune -o -name node_modules -prune -o -name .yarn-cache -prune -o -name package.json -print`; do
         if grep -q '"eslint":' $package; then
             dirname $package | sed "s#./##"
         fi
@@ -31,10 +31,10 @@ ensure_eslint_installed() {
     local package="$1" && shift
 
     if [ ! -e $package/$LOCAL_ESLINT_PATH ]; then
-        (cd $package && npm install 2>&1) || die "Local eslint required but not installed, npm install failed in $package"
+        (cd $package && yarn install 2>&1) || die "Local eslint required but not installed, run yarn install failed in $package"
     fi
     if [ ! -e $package/$LOCAL_ESLINT_PATH ]; then
-        die "Local eslint required but still missing after npm install in $package"
+        die "Local eslint required but still missing after yarn install in $package"
     fi
 }
 

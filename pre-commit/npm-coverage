@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+#
+# Just runs npm coverage
+set -euo pipefail
+
+exec npm coverage
