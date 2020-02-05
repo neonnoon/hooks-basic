@@ -3,4 +3,4 @@
 # Just runs npm coverage
 set -euo pipefail
 
-exec npm coverage
+exec npm run coverage

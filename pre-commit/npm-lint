@@ -3,4 +3,4 @@
 # Just runs npm lint
 set -euo pipefail
 
-exec npm lint
+exec npm run lint

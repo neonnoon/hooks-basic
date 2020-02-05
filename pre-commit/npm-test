@@ -3,4 +3,4 @@
 # Just runs npm test
 set -euo pipefail
 
-exec npm test
+exec npm run test
