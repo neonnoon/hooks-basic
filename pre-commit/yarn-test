@@ -1,6 +1,0 @@
-#!/usr/bin/env bash
-#
-# Just runs yarn test
-set -euo pipefail
-
-exec yarn test

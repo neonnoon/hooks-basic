@@ -1,6 +1,0 @@
-#!/usr/bin/env bash
-#
-# Just runs yarn lint
-set -euo pipefail
-
-exec yarn lint

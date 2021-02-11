@@ -1,6 +1,0 @@
-#!/usr/bin/env bash
-#
-# Just runs yarn coverage
-set -euo pipefail
-
-exec yarn coverage
