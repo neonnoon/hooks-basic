@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+#
+# Just runs npm stylelint
+set -euo pipefail
+
+exec npm run stylelint
